@@ -1,111 +1,295 @@
-# LLMFarm
+# LLM Chat Flutter
 
+A Flutter application that simulates the LLMFarm experience, allowing you to test and interact with a demo version of the Pythia-410M language model.
 
-<p align="center">
-  <a href="https://apps.apple.com/ru/app/llm-farm/id6461209867?l=en-GB&platform=iphone"><img width="178px" alt="Icon" src="dist/LLMFarm0.1.2_256.png"></a>
-  <a href="https://testflight.apple.com/join/6SpPLIVM"><img width="178px" alt="Icon" src="dist/testflight.png"></a>
-</p>
-<p align="center">
-  <a href="https://apps.apple.com/ru/app/llm-farm/id6461209867?l=en-GB&platform=iphone"><strong>Install Stable</strong></a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://testflight.apple.com/join/6SpPLIVM"><strong>Install Latest</strong></a>
-</p>
+## 🚀 Quick Start
 
-<br>
+### Option 1: Use the Launch Script (Windows)
+```bash
+run_demo.bat
+```
 
-<p align="center">
-  <a href="https://t.me/llmfarm_chat"><img alt="Icon" height="32"  src="dist/telegram_logo_128.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://www.youtube.com/@LLMFarm-lib"><img alt="Icon" height="32"  src="dist/youtube_logo_128.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://boosty.to/llmfarm"><img alt="Icon" height="32"  src="dist/boosty_icon.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://llmfarm.tech"><img alt="Icon" height="32"  src="dist/www_logo_128.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/guinmoon/LLMFarm/wiki"><img alt="Wiki" height="32"  src="dist/wiki_logo_128.png"></a>
-</p>
+### Option 2: Manual Commands
+```bash
+# Web (Chrome)
+flutter run -d chrome
 
-<p align="center">
-  <img alt="Icon" height="440px"  src="dist/screen1.png">&nbsp;&nbsp;
-  <img alt="Icon" width="540px"  src="dist/screen2.png">
-</p>
+# Windows Desktop
+flutter run -d windows
+
+# macOS Desktop
+flutter run -d macos
+
+# Linux Desktop
+flutter run -d linux
+```
+
+## Overview
+
+This Flutter app recreates the core functionality of LLMFarm, providing:
+
+- **Local LLM Simulation**: Simulates the Pythia-410M (410 million parameter) model
+- **Streaming Chat Interface**: Real-time token-by-token response generation
+- **Model Management**: Load/unload model simulation with progress indicators
+- **Performance Metrics**: Displays tokens per second and other model statistics
+- **Cross-Platform**: Runs on Web, Windows, macOS, and Linux
+- **LLMFarm-inspired UI**: Similar interface design to the original iOS/macOS app
+
+## Features
+
+### 🤖 Simulated Pythia-410M Model
+- **Model Size**: ~320MB (simulated)
+- **Parameters**: 410 million
+- **Architecture**: Pythia (GPT-NeoX based)
+- **Quantization**: Q6_K (simulated)
+- **Context Length**: 4096 tokens
+- **Streaming Responses**: Token-by-token generation
+
+### 💬 Enhanced Chat Interface
+- **Real-time Streaming**: See responses generate word by word
+- **Contextual Responses**: Recognizes keywords and provides relevant answers
+- **Conversation Memory**: Maintains context throughout the chat
+- **Message States**: Loading, predicting, completed, error states
+- **Performance Metrics**: Tokens per second display
+- **Demo Commands**: Built-in commands to explore AI capabilities
+
+### 📊 Comprehensive Model Information
+- **Architecture Details**: 24 layers, 1024 hidden size, 16 attention heads
+- **Performance Metrics**: Real-time tokens/sec, memory, CPU/GPU usage
+- **Status Tracking**: Loading state, prediction status, conversation turns
+- **Training Information**: The Pile dataset, EleutherAI attribution
+
+### 🎨 Modern User Interface
+- **Material Design 3**: Modern Flutter UI components
+- **Cross-Platform**: Consistent experience across all platforms
+- **Responsive Layout**: Works on various screen sizes
+- **Dark/Light Theme**: Automatic theme support
+- **Smooth Animations**: Polished user experience
+
+## Demo Commands
+
+Try these commands to explore different AI capabilities:
+
+### Basic Interactions
+- `hello` - Get a friendly greeting from Pythia-410M
+- `how are you` - Check the model's status
+- `help` - Get assistance and guidance
+
+### Capability Exploration
+- `what can you do` - Learn about the model's capabilities
+- `tell me about yourself` - Get detailed model information
+- `demo` - Understand this demonstration
+
+### Technical Discussions
+- `python` - Discuss Python programming and AI development
+- `ai` - Talk about artificial intelligence and machine learning
+- `flutter` - Chat about Flutter development and cross-platform apps
+- `llmfarm` - Learn about the LLMFarm framework
+
+## Getting Started
+
+### Prerequisites
+- Flutter SDK (3.4.4 or later)
+- Dart SDK
+- Web browser (for web version)
+- Platform-specific requirements for desktop
+
+### Installation
+
+1. **Clone or download the project**
+   ```bash
+   # If you have the source code
+   cd LLMFarm
+   ```
+
+2. **Install dependencies**
+   ```bash
+   flutter pub get
+   ```
+
+3. **Run the application**
+   ```bash
+   # Web version (recommended for first try)
+   flutter run -d chrome
+   
+   # Desktop version
+   flutter run -d windows  # or macos, linux
+   ```
+
+### Platform Support
+
+✅ **Web** - Runs in any modern browser  
+✅ **Windows** - Native desktop application  
+✅ **macOS** - Native desktop application  
+✅ **Linux** - Native desktop application  
+
+## Usage Guide
+
+### Starting a Chat
+
+1. **Launch the app** - You'll see the welcome screen with demo commands
+2. **Load the model** - Click "Load Model" to simulate loading Pythia-410M
+3. **Start chatting** - Type your message and press send
+4. **Watch responses** - See the AI respond in real-time with streaming
+
+### Exploring Features
+
+- **Model Info**: Click the info icon (ⓘ) to see detailed model specifications
+- **Performance**: Watch real-time metrics during conversations
+- **Demo Commands**: Try the suggested commands to see different response types
+- **Stop Generation**: Use the stop button to halt responses mid-generation
+
+## Architecture
+
+### Models
+- **`Message`**: Chat message data structure with states and metadata
+- **`ChatConfig`**: Model configuration parameters and settings
+
+### Services
+- **`LLMService`**: Core LLM simulation service
+  - Realistic model loading/unloading simulation
+  - Contextual response generation with conversation memory
+  - Performance metrics simulation
+  - Enhanced demo commands and responses
+
+### UI Components
+- **`ChatScreen`**: Main chat interface with model status
+- **`MessageWidget`**: Individual message display with status indicators
+- **`ChatInput`**: Message input with send/stop controls
+- **`ModelInfoPanel`**: Comprehensive model information dialog
+
+## Technical Highlights
+
+### Realistic Simulation
+- **Token Timing**: 40-100ms per token (15-25 tokens/sec)
+- **Memory Usage**: ~320MB base + realistic variations
+- **CPU/GPU Usage**: Simulated realistic resource consumption
+- **Context Tracking**: Maintains conversation history and context awareness
+
+### Flutter Integration
+- **Cross-Platform**: Single codebase for all platforms
+- **Material Design 3**: Modern, responsive UI components
+- **State Management**: Efficient state handling with StatefulWidget
+- **Streaming UI**: Real-time updates during response generation
+
+### Educational Value
+- **LLM Concepts**: Demonstrates key language model concepts
+- **Local AI Benefits**: Showcases on-device inference advantages
+- **Framework Integration**: Shows how to integrate AI into Flutter apps
+- **Performance Awareness**: Displays realistic performance characteristics
+
+## Comparison with Real LLMFarm
+
+| Feature | Real LLMFarm | Flutter Demo |
+|---------|--------------|--------------|
+| **Model Loading** | Actual Pythia-410M | Simulated |
+| **Inference** | Real neural network | Contextual responses |
+| **Performance** | Actual metrics | Realistic simulation |
+| **Memory Usage** | Real 320MB | Simulated |
+| **Streaming** | True token generation | Word-by-word simulation |
+| **Platform** | iOS/macOS only | Cross-platform |
+| **Purpose** | Production use | Educational demo |
+
+## Development
+
+### Project Structure
+
+```
+lib/
+├── main.dart                 # App entry point
+├── models/                   # Data models
+│   ├── message.dart         # Message data structure
+│   └── chat_config.dart     # Configuration model
+├── services/                # Business logic
+│   └── llm_service.dart     # Enhanced LLM simulation
+├── screens/                 # Main screens
+│   └── chat_screen.dart     # Primary chat interface
+└── widgets/                 # Reusable components
+    ├── message_widget.dart   # Message display
+    ├── chat_input.dart       # Input component
+    └── model_info_panel.dart # Info dialog
+```
+
+### Building for Production
+
+```bash
+# Web
+flutter build web
+
+# Windows
+flutter build windows
+
+# macOS
+flutter build macos
+
+# Linux
+flutter build linux
+```
+
+### Testing
+
+```bash
+# Run all tests
+flutter test
+
+# Analyze code
+flutter analyze
+```
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Platform not supported**: Run `flutter create . --platforms=web,windows,macos,linux`
+2. **Dependencies issues**: Run `flutter pub get`
+3. **Build errors**: Run `flutter clean` then `flutter pub get`
+
+### Performance
+
+The demo is optimized for smooth performance across all platforms:
+- Efficient state management
+- Optimized rendering
+- Realistic timing simulation
+- Memory-conscious design
+
+## Future Enhancements
+
+Potential improvements:
+
+- **Real LLM Integration**: Connect to actual local LLM APIs
+- **Multiple Models**: Support for different model types
+- **Advanced Features**: RAG, fine-tuning, custom prompts
+- **Production Features**: Chat persistence, export, settings
+- **Voice Input**: Speech-to-text integration
+- **Image Support**: Multimodal capabilities
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Acknowledgments
+
+- **LLMFarm**: Original inspiration and design reference
+- **EleutherAI**: Pythia model architecture and training
+- **Flutter Team**: Excellent cross-platform framework
+- **Material Design**: UI/UX guidelines and components
+
+## Support
+
+For questions or issues:
+
+1. Check the [Issues](../../issues) page
+2. Create a new issue with detailed description
+3. Include Flutter version and platform information
 
 ---
 
-
-LLMFarm is an iOS and MacOS app to work with large language models (LLM). It allows you to load different LLMs with certain parameters.With LLMFarm, you can test the performance of different LLMs on iOS and macOS and find the most suitable model for your project.<br>
-Based on [ggml](https://github.com/ggerganov/ggml) and [llama.cpp](https://github.com/ggerganov/llama.cpp) by [Georgi Gerganov](https://github.com/ggerganov).
-
-# Features
-
-- [x] MacOS (13+)
-- [x] iOS (16+)
-- [x] Various inferences
-- [x] Various sampling methods
-- [x] Metal ([dont work](https://github.com/ggerganov/llama.cpp/issues/2407#issuecomment-1699544808) on intel Mac)
-- [x] Model setting templates
-- [x] [Restore context state](https://llmfarm.tech/docs/save_load_state)
-- [x] [Apple Shortcuts](https://llmfarm.tech/docs/shortcuts)
-- [x] [RAG](https://llmfarm.tech/docs/RAG/RAG%20Settings)
-
-# Inferences
-
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [LLaMA](https://arxiv.org/abs/2302.13971) 
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [Gemma](https://ai.google.dev/gemma) 
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [Phi](https://huggingface.co/models?search=microsoft/phi) 
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [GPT2](https://huggingface.co/docs/transformers/model_doc/gpt2) + [Cerebras](https://arxiv.org/abs/2304.03208) 
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [Starcoder(Santacoder)](https://huggingface.co/bigcode/santacoder) 
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [Falcon](https://github.com/cmp-nct/ggllm.cpp) 
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [MPT](https://huggingface.co/guinmoon/mpt-7b-storywriter-GGUF) 
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [Bloom](https://huggingface.co/guinmoon/bloomz-1b7-gguf) 
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [StableLM-3b-4e1t](https://huggingface.co/stabilityai/stablelm-3b-4e1t) 
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [Qwen](https://huggingface.co/Qwen/Qwen-7B) 
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [Yi models](https://huggingface.co/models?search=01-ai/Yi) 
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [Deepseek models](https://huggingface.co/models?search=deepseek-ai/deepseek) 
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [Mixtral MoE](https://huggingface.co/models?search=mistral-ai/Mixtral) 
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [PLaMo-13B](https://github.com/ggerganov/llama.cpp/pull/3557) 
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [Mamba](https://github.com/state-spaces/mamba)
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [RWKV](https://huggingface.co/docs/transformers/model_doc/rwkv) 
-- [x] <img src="dist/metal-96x96_2x.png" width="16px" heigth="16px"> [GPTNeoX](https://huggingface.co/docs/transformers/model_doc/gpt_neox)
-
-See full list [here](https://github.com/ggerganov/llama.cpp).
-
-## Multimodal
-- [x] [LLaVA 1.5 models](https://huggingface.co/collections/liuhaotian/llava-15-653aac15d994e992e2677a7e), [LLaVA 1.6 models](https://huggingface.co/collections/liuhaotian/llava-16-65b9e40155f60fd046a5ccf2)
-- [x] [BakLLaVA](https://huggingface.co/models?search=SkunkworksAI/Bakllava)
-- [x] [Obsidian](https://huggingface.co/NousResearch/Obsidian-3B-V0.5)
-- [x] [ShareGPT4V](https://huggingface.co/models?search=Lin-Chen/ShareGPT4V)
-- [x] [MobileVLM 1.7B/3B models](https://huggingface.co/models?search=mobileVLM)
-- [x] [Yi-VL](https://huggingface.co/models?search=Yi-VL)
-- [x] [Moondream](https://huggingface.co/vikhyatk/moondream2)
-  
-Note: For *Falcon, Alpaca, GPT4All, Chinese LLaMA / Alpaca and Chinese LLaMA-2 / Alpaca-2, Vigogne (French), Vicuna, Koala, OpenBuddy (Multilingual), Pygmalion/Metharme, WizardLM, Baichuan 1 & 2 + derivations, Aquila 1 & 2, Mistral AI v0.1, Refact, Persimmon 8B, MPT, Bloom* select `llama inference` in model settings.
-
-# Sampling methods
-- [x] Temperature (temp, tok-k, top-p)
-- [x] [Tail Free Sampling (TFS)](https://www.trentonbricken.com/Tail-Free-Sampling/)
-- [x] [Locally Typical Sampling](https://arxiv.org/abs/2202.00666)
-- [x] [Mirostat](https://arxiv.org/abs/2007.14966)
-- [x] Greedy
-- [x] Grammar
-
-# Getting Started
-
-You can find answers to some questions in the [FAQ section](https://llmfarm.tech/docs).
-
-## Inference options
-When creating a chat, a JSON file is generated in which you can specify additional inference options. The chat files are located in the "chats" directory. You can see all inference options [here](https://llmfarm.tech/docs).
-
-## Models
-You can find some of the supported [models here](https://llmfarm.tech/).
-
-
-# Development
-`llmfarm_core` has been moved to a [separate repository](https://github.com/guinmoon/llmfarm_core.swift). To build llmfarm, you need to clone this repository recursively:
-```bash
-git clone --recurse-submodules https://github.com/guinmoon/LLMFarm
-```
-
-# Also used sources from:
-* [rwkv.cpp](https://github.com/saharNooby/rwkv.cpp) by [saharNooby](https://github.com/saharNooby)
-* [Mia](https://github.com/byroneverson/Mia) by [byroneverson](https://github.com/byroneverson)
-* [LlamaChat](https://github.com/alexrozanski/LlamaChat) by [alexrozanski](https://github.com/alexrozanski)
-* [swift-markdown-ui](https://github.com/gonzalezreal/swift-markdown-ui) by [gonzalezreal](https://github.com/gonzalezreal)
-* [similarity-search-kit](https://github.com/ZachNagengast/similarity-search-kit) by [ZachNagengast](https://github.com/ZachNagengast)
-
-# [❤️ Support project](./donate.md)
+**Note**: This is a demonstration app that simulates LLM functionality. For production use with real language models, consider integrating with actual LLM APIs or local inference engines.

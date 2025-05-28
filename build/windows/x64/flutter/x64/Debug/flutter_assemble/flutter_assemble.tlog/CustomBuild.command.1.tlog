@@ -1,0 +1,28 @@
+^C:\USERS\EDDY\CURSOR\LLMFARM\LLMFARM\BUILD\WINDOWS\X64\CMAKEFILES\F6205884D50BFFA0956B12EB3E8458D4\FLUTTER_WINDOWS.DLL.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\Users\eddy\flutter PROJECT_DIR=C:\Users\eddy\cursor\LLMFarm\LLMFarm FLUTTER_ROOT=C:\Users\eddy\flutter FLUTTER_EPHEMERAL_DIR=C:\Users\eddy\cursor\LLMFarm\LLMFarm\windows\flutter\ephemeral PROJECT_DIR=C:\Users\eddy\cursor\LLMFarm\LLMFarm FLUTTER_TARGET=C:\Users\eddy\cursor\LLMFarm\LLMFarm\lib\main.dart DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false PACKAGE_CONFIG=C:\Users\eddy\cursor\LLMFarm\LLMFarm\.dart_tool\package_config.json C:/Users/eddy/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\EDDY\CURSOR\LLMFARM\LLMFARM\BUILD\WINDOWS\X64\CMAKEFILES\D9DAD337E8CF39867665522AC5AE3333\FLUTTER_ASSEMBLE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\EDDY\CURSOR\LLMFARM\LLMFARM\WINDOWS\FLUTTER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/eddy/cursor/LLMFarm/LLMFarm/windows -BC:/Users/eddy/cursor/LLMFarm/LLMFarm/build/windows/x64 --check-stamp-file C:/Users/eddy/cursor/LLMFarm/LLMFarm/build/windows/x64/flutter/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
